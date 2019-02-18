@@ -20,6 +20,10 @@ awsSecretAccessKey: null
 
 # REQUIRED. The site or brand name to display to the user so they know what config is loaded
 siteConfigName: Example.com
+# OPTIONAL. Base URL to be used as canonical URL and oEmbed provider URL
+siteBaseUrl: www.example.com
+# OPTIONAL. Site favicon
+siteIcon: https://www.example.com/favicon.ico
 # OPTIONAL. Css to add to the preview graphic page. You can use this to customize the UI font.
 extraPreviewCss: |-
   @font-face {

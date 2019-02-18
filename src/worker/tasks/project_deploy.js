@@ -45,15 +45,18 @@ function projectBuild({ project, settings }) {
     const embed_meta = getEmbedMeta(config)
     const extra_preview_css = settings.extraPreviewCss || ''
     const extra_embed_css = settings.extraEmbedCss || ''
+    const site_name = settings.siteConfigName
+    const site_base_url = settings.siteBaseUrl || 'https://www.voxmedia.com'
+    const site_icon = settings.siteIcon || false
 
     fs.writeFile(
       path.join(dest, 'index.html'),
-      render('embed.html.ejs', { config, content, project, embed_meta, slug, deploy_url, extra_embed_css }),
+      render('embed.html.ejs', { config, content, project, embed_meta, slug, deploy_url, extra_embed_css, site_icon, site_base_url }),
       end)
 
     fs.writeFile(
       path.join(dest, 'preview.html'),
-      render('preview.html.ejs', { config, embed_code, project, embed_meta, slug, deploy_url, extra_preview_css }),
+      render('preview.html.ejs', { config, embed_code, project, embed_meta, slug, deploy_url, extra_preview_css, site_icon, site_base_url }),
       end)
 
     fs.writeFile(
@@ -63,7 +66,7 @@ function projectBuild({ project, settings }) {
 
     fs.writeFile(
       path.join(dest, 'oembed.json'),
-      render('oembed.json.ejs', { config, embed_code, project, embed_meta, slug, deploy_url }),
+      render('oembed.json.ejs', { config, embed_code, project, embed_meta, slug, deploy_url, site_name, site_base_url }),
       end)
   })
 }

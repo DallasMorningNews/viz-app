@@ -2,6 +2,9 @@
         href="<%=deploy_url%>oembed.json"
         title="<%=config.headline || project.title%>" />
 
-  <link rel="canonical" href="https://www.vox.com" />
+  <link rel="canonical" href="<%=site_base_url%>" />
 
-  <link rel="shortcut icon" href="https://cdn3.vox-cdn.com/community_logos/52517/voxv.png" />
+
+<% if (site_icon) { %>
+  <link rel="shortcut icon" href="<%=site_icon%>" />
+<% } %>
